@@ -1,6 +1,0 @@
----
-- name: Reload ferm
-  service: name=ferm state=reloaded
-
-- name: Restart nrpe
-  service: name=nagios-nrpe-server state=restarted

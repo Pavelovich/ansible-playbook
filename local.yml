@@ -2,33 +2,78 @@
 # python may need to be installed manually.
 - hosts: all
   vars_files:
-    - ../orain_private/vars.yml
+    - ../private/vars.yml
   roles:
-    - common
+    - base
+    - dsh
 
-- hosts: webservers
+- hosts: adminbotservers
   vars_files:
-    - ../orain_private/vars.yml
+    - ../private/vars.yml
   roles:
-    - nginx
+    - adminbot
+
+- hosts: mediawikiservers
+  vars_files:
+    - ../private/vars.yml
+  roles:
     - php
-    - memcached
+    - hhvm
     - mediawiki
-
-- hosts: searchservers
-  vars_files:
-    - ../orain_private/vars.yml
-  roles:
-    - elasticsearch
+    - nginx
 
 - hosts: dbservers
   vars_files:
-    - ../orain_private/vars.yml
+    - ../private/vars.yml
   roles:
     - mariadb
 
-- hosts: miscservers
+- hosts: monitoringservers
   vars_files:
-    - ../orain_private/vars.yml
+    - ../private/vars.yml
   roles:
     - nagios
+
+- hosts: staticservers
+  vars_files:
+    - ../private/vars.yml
+  roles:
+    - nfs-server
+    
+- hosts: mailservers
+  vars_files:
+    - ../private/vars.yml
+  roles:
+    - mail
+
+- hosts: redisservers
+  vars_files:
+    - ../private/vars.yml
+  roles:
+    - redis
+
+- hosts: dnsservers
+  vars_files:
+    - ../private/vars.yml
+  roles:
+    - dns
+
+- hosts: gangliaservers
+  vars_files:
+    - ../private/vars.yml
+  roles:
+    - ganglia
+
+- hosts: loadbalancerservers
+  vars_files:
+    - ../private/vars.yml
+  roles:
+    - loadbalancer
+
+- hosts: apacheservers
+  vars_files:
+    - ../private/vars.yml
+  roles:
+    - apache2
+    - php
+    - hhvm

@@ -1,0 +1,13 @@
+- name: Copy HHVM fastcgi script to init.d
+  copy: src="hhvm" dest=/etc/init.d/hhvm owner=root group=root mode=770
+
+- name: Add hhvm to boot
+  shell: /usr/sbin/update-rc.d hhvm defaults 98
+  register: update_rc_hhvm
+  changed_when: False # never report as "changed"
+
+- name: Copy hhvm.ini over
+  template: src="hhvm.ini" dest=/etc/hhvm/hhvm.ini owner=root group=root mode=644
+
+- name: Copy logrotate
+  copy: src="./logrotate.d/hhvm" dest=/etc/logrotate.d/hhvm

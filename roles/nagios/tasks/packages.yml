@@ -1,0 +1,5 @@
+- name: Install nagios3
+  apt: pkg=nagios3
+
+- name: Install python-pyinotify
+  apt: pkg=python-pyinotify

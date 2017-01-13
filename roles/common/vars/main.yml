@@ -1,6 +1,0 @@
----
-users:
-  - { name: 'kudu', groups: 'sudo' }
-  - { name: 'addshore', groups: 'sudo' }
-  - { name: 'johnflewis', groups: 'sudo' }
-

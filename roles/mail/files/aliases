@@ -1,0 +1,40 @@
+# standard stuff
+mailer-daemon: postmaster
+postmaster: root
+nobody: root
+hostmaster: root
+webmaster: root
+www: root
+ftp: root
+abuse: root
+noc: root
+security: root
+
+# sysadmin group
+sysadmin: addshore,fastlizard4
+root: sysadmin
+operations: sysadmin
+
+# paypal for paypal
+paypal: dusti,addshore
+
+# accounts for umbrella of other stuff
+accounts: addshore,dusti,justin22622@gmail.com
+
+# nagios
+nagios: sysadmin
+
+# addshore - skip server side mailbox
+addshore: addshorewiki@gmail.com
+
+# GlobalSign auth
+admin: accounts
+
+# staff
+staff: addshore,dusti,arcane@live.com,kudu.py@gmail.com,fastlizard4,ndkilla@orain.org,jgazzarato@me.com
+
+# forward dusti@ to dusti's email temporarily
+dusti: dahowe@bsugmail.net
+
+# forward fastlizard4 to fl4's email
+fastlizard4: fastlizard4@gmail.com
